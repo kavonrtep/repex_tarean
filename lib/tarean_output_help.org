@@ -1,0 +1,174 @@
+#+TITLE: TAREAN output description
+#+HTML_HEAD_EXTRA: <link rel="stylesheet" type="text/css" href="style1.css" />
+#+LANGUAGE: en
+
+* Introduction
+TAREAN output includes *HTML report* with list of all analyzed clusters; the clusters are classified into five categories:
++ high confidence satellites
++ low confidence satellites
++ potential LTR elements
++ rDNA
++ other clusters
+Each cluster for which consensus sequences was reconstructed has also its own detailed report, linked to the main report.
+
+* Main HTML report
+This report contains basic information about all clusters larger than specified threshold (default value is 0.01% of analyzed reads)
+** Table legend
++ Cluster ::  Cluster identifier
++ Genome Proportion[%] :: /(Number of sequences in cluster/Number of sequences in clustering) x 100%/
++ Size :: Number of reads in the cluster
++ Satellite probability :: Empirical probability estimate that cluster sequences
+     are derived from satellite repeat. This estimate is based on analysis of more
+     than xxx clusters including yyy manually anotated and zzz experimentaly
+     validated satellite repeats
++ Consensus :: Consensus sequence is outcome of kmer-based
+     analysis and represents the most probable satellite monomer
+     sequence
++ Kmer analysis ::
+     link to analysis report for individual clusters
++ Graph layout :: Graph-based visualization of similarities among sequence
+     reads
++ Connected component index :: Proportion of nodes of the graph which are part
+     of the the largest strongly connected component
++ Pair completeness index ::  Proportion of reads with available
+     mate-pair within the same cluster
++ Kmer coverage :: Sum of relative frequencies of all kmers used for consensus
+     sequence reconstruction
++ |V| :: Number of vertices of the graph
++ |E| :: Number of edges of the graph
++ PBS score :: Primer binding site detection score
++ The longest ORF length :: Length of the longest open reading frame found in
+     any of the possible six reading frames. Search was done on dimer of
+     consensus so ORFs can be longer than 'monomer' length
++ Similarity-based annotation :: Annotation based on
+     similarity search using blastn/blastx against database of known
+     repeats.
+* Detailed cluster report
+Cluster report includes a list of major monomer sequence varinats reconstructed from the most frequent k-mers. The reconstructed consensus sequences are sorted based on their significance (that is, what proportion of k-mer they represent).
+** Table legend
+- kmer :: length of kmer used for consensus reconstruction.
+- variant :: identifier of consensus variant.
+- total score :: measure of significance of consensus variant. Score is calculated as a sum of weights of all k-mers used for consensus reconstruction.
+- monomer length :: length of the consensus
+- consensus :: consensus sequence without ambiguous bases. 
+- graph image :: part of de-Bruijn graph based on the abundant k-mers. Size of
+     vertices corresponds to k-mer frequencies, Paths in the graph which was used
+     for reconstruction of consensus sequences is gray colored.
+- logo image :: consensus sequences shown as DNA logo. Height of letters corresponds to kmer frequencies. Logo images are linked to corresponding position probability matrices.
+
+* Structure of the output archive
+Complete results from TAREAN analysis can by downloaded as zip archive which contains the following
+files and directories:
+
+#+BEGIN_SRC files & directories
+.
+.
+├── clusters_info.csv <------------ list of clusters in tab delimited format 
+├── index.html        <------------ main html report
+├── seqclust
+│   ├── assembly                  # not implemented yet
+│   ├── blastn        <------------ results of read comparison with DNA database
+│   ├── blastx        <------------ results of read comparison with protein database
+│   ├── clustering
+│   │   ├── clusters
+│   │   │   ├── dir_CL0001  <----┐- detailed information about clusters
+│   │   │   ├── dir_CL0002  <----│
+│   │   │   ├── dir_CL0003  <----│
+│   │   │   ....            <----┘
+│   │   │   
+│   │   └── hitsort.cls  <--------- list of reads in individual clusters
+│   ├── mgblast
+│   ├── prerun
+│   └── sequences        <--------- input reads
+├── summary                       # not implemented yet
+├── TR_consensus_rank_1_.fasta  <-- reconstructed monomer sequences for HIGH confidence satellites
+├── TR_consensus_rank_2_.fasta  <-- reconstructed monomer sequences for LOW confidence satellites
+├── TR_consensus_rank_3_.fasta  <-- reconstructed sequences of potential LTR elements
+└── TR_consensus_rank_4_.fasta  <-- reconstructed consensus for rDNA
+
+#+END_SRC
+
+List of all clusters which is available in HTML file =index.html= is also
+available in tab delimited format in the file =clusters_info.csv= which can be
+easily viewed and edited in spreadsheet editing programs. List of all clusters
+and the corresponding reads is in the file =hitsort.cls= which has the following
+format:
+
+  :  >CL1    11
+  :  134234r 55494f  85525f  136746r 96742f  91926f  239729r 105445f 222518r 136402r 9013
+  :  >CL2    10
+  :  76205r  120735r 69527r  12235r  176778f 189307f 131952f 163507f 100038r 178475r 
+  :  >CL3    6
+  :  99835r  222598f 29715r  102023f 99524r  30116f 
+  :  >CL4    6
+  :  51723r  69073r  218774r 146425f 136314r 41744f 
+  :  >CL5    5
+  :  70686f  65565f  234078r 50430r  68247r 
+
+where =CL1 11= is the cluster ID followed by number of reads in the cluster;
+next line contains list of all read names belonging to the cluster.
+** structure of cluster directories
+
+Detailed information for each cluster is stored is subdirectories:
+
+#+BEGIN_SRC folder directories
+dir_CL0011
+├── blast.csv        <------------tab delimited file, all-to-all comparison od reads within cluster            
+├── CL11_directed_graph.RData <----directed graph representation of cluster saved as R igraph object
+├── CL11.GL     <-----------------undirected graph representation of cluster saved as R igraph object
+├── CL11.png         <-----------┐- images with graph visualization
+├── CL11_tmb.png     <-----------┘
+├── dna_database_annotation.csv <-- annotation of cluster reads based on the DNA database of repeats
+├── reads_all.fas   <---------------- all reads included in the cluster in fasta format
+├── reads.fas      <---------------- subset of reads used for monomer reconstruction
+├── reads_oriented.fas <------------ subset of reads all in the same orientation
+└── tarean
+    ├── consensus.fasta <----------- fasta file with tandem repeat consensus variants
+    ├── ggmin.RData
+    ├── img
+    │   ├── graph_11mer_1.png  <-----┐  
+    │   ├── graph_11mer_2.png  <-----│
+    │   ├── graph_15mer_2.png  <-----│
+    │   ├── graph_15mer_3.png  <-----│
+    │   ├── graph_15mer_4.png  <-----│ images of kmer-based graphs used for reconstruction of
+    │   ├── graph_19mer_2.png  <-----│ monomer variants
+    │   ├── graph_19mer_4.png  <-----│
+    │   ├── graph_19mer_5.png  <-----│
+    │   ├── graph_23mer_2.png  <-----│
+    │   ├── graph_27mer_3.png  <-----┘
+    │   │
+    │   ├── logo_11mer_1.png  <-----┐  
+    │   ├── logo_11mer_2.png  <-----│
+    │   ├── logo_15mer_2.png  <-----│
+    │   ├── logo_15mer_3.png  <-----│
+    │   ├── logo_15mer_4.png  <-----│ images with DNA logos representing consensus sequences
+    │   ├── logo_19mer_2.png  <-----│ of monomer variants
+    │   ├── logo_19mer_4.png  <-----│
+    │   ├── logo_19mer_5.png  <-----│
+    │   ├── logo_23mer_2.png  <-----│
+    │   └── logo_27mer_3.png  <-----┘
+    │
+    ├── ppm_11mer_1.csv  <-----┐
+    ├── ppm_11mer_2.csv  <-----│
+    ├── ppm_15mer_2.csv  <-----│
+    ├── ppm_15mer_3.csv  <-----│
+    ├── ppm_15mer_4.csv  <-----│ position probability matrices for individual monomer
+    ├── ppm_19mer_2.csv  <-----│ variants derived from k-mer frequencies
+    ├── ppm_19mer_4.csv  <-----│
+    ├── ppm_19mer_5.csv  <-----│
+    ├── ppm_23mer_2.csv  <-----│
+    ├── ppm_27mer_3.csv  <-----┘
+    │
+    ├── reads_oriented.fas_11.kmers  <-----┐
+    ├── reads_oriented.fas_15.kmers  <-----│
+    ├── reads_oriented.fas_19.kmers  <-----│ k-mer frequencies calculated on oriented reads
+    ├── reads_oriented.fas_23.kmers  <-----│ for k-mer lengths 11 - 27
+    ├── reads_oriented.fas_27.kmers  <-----┘
+    ├── reads_oriented.fasblast_out.cvs  <---------┐results of blastn search against database of tRNA
+    ├── reads_oriented.fasblast_out.cvs_L.csv <----│for purposes of LTR detection 
+    ├── reads_oriented.fasblast_out.cvs_R.csv <----┘ 
+    └── report.html       <--- cluster analysisHTML summary
+#+END_SRC
+
+
+

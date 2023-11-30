@@ -1,0 +1,32 @@
+name: repeatexplorer
+channels:
+  - iuc
+  - conda-forge
+  - bioconda
+dependencies:
+  - python 3.7.*
+  - compilers
+  - pyrserve 0.9.1
+  - last >=956
+  - mafft
+  - imagemagick
+  - blast
+  - diamond 0.9.29
+  - blast-legacy
+  - r-igraph
+  - r-data.tree
+  - r-stringr
+  - r-r2html
+  - r-hwriter
+  - r-dt
+  - r-scales
+  - r-plotrix
+  - r-png
+  - r-plyr
+  - r-dplyr
+  - r-optparse
+  - r-dbi
+  - r-rsqlite
+  - r-rserve
+  - bioconductor-biostrings
+

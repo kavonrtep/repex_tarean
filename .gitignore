@@ -1,0 +1,18 @@
+virtualenv*
+tmp
+test_data/
+test_data_large
+# blast database files:
+formatdb.log
+# compiled files
+bin/louvain_community
+bin/louvain_convert
+bin/louvain_hierarchy
+__pycache__
+louvain/community.o
+louvain/graph.o
+louvain/graph_binary.o
+louvain/main_community.o
+louvain/main_convert.o
+louvain/main_hierarchy.o
+*.pyc

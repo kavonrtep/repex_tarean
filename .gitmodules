@@ -1,0 +1,3 @@
+[submodule "singularity"]
+	path = singularity
+	url = https://github.com/repeatexplorer/repex_tarean.git

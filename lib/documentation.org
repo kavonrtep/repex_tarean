@@ -1,0 +1,85 @@
+#+TITLE: RepeatExplorer documentation
+#+HTML_HEAD_EXTRA: <link rel="stylesheet" type="text/css" href="style1.css" />
+#+LANGUAGE: en
+#+OPTIONS: html-postamble:nil
+
+#+begin_export html 
+<h1 id="clust"> Cluster annotation table </h1>
+#+end_export
+
+- Cluster :: Cluster index, contains links to detailed cluster reports.
+- Supercluster ::  Supercluster index, contains links to detailed supercluster reports.
+- Proportion[%] ::  Proportion of the reads in the cluster with respect to the amount of number of analyzed sequences.
+- Proportions adjusted[%] ::  Adjusted genome proportion can differ from the Proportion[%] value if Perform automatic filtering of abundant satellite repeats was on. Sequences belonging to high-abundance satellites are partially removed from all-to-all comparison and clustering, causing the Proportion estimate for these satellites to be underestimated. Proportion adjusted provides a corrected estimate of genomic proportion for a particular satellite repeat.
+- Number of reads ::   Number of reads in the cluster.
+- Graph layout ::  Graph-based visualization of similarities among sequence reads.
+- Similarity hits ::  The proportion of reads in the clusters with similarity to REXdb or DNA reference databases. Only hits with proportion above 0.1% are shown.
+- Similarity hits to custom database ::  This column is optional and shows all similarity hits based on the search using BLASTN against a custom nucleotide database provided by the user.
+- LTR detection ::   This column shows whether an LTR with a primer binding site was detected in the contig assembly and the type of complementary tRNA. 
+- Satellite probability ::  Empirical probability estimate that cluster sequences are derived from satellite repeat. This estimate is based on analysis of manually annotated clusters and experimentally validated satellite repeats.
+- TAREAN annotation :: TAREAN divides clusters into five categories, high confidence satellites, low confidence satellites, putative LTR element, rDNA and other clusters where no potential tandem-like structure.
+- Consensus length ::
+- Consensus ::  Consensus sequence is the outcome of k‑mer–based analysis and represents the most probable satellite monomer sequence.
+- TAREAN k‑mer analysis ::  Hyperlink to individual clusters TAREAN k‑mer report.
+- Connected component index C ::  Proportion of nodes of the graph that are part of the largest strongly connected component.
+- Pair completeness index P ::  Proportion of reads in complete read pairs within the cluster.
+- TAREAN k‑mer coverage ::  Sum of relative frequencies of all k‑mers used for consensus sequence reconstruction.
+- |V| ::  Number of vertices of the graph.
+- |E| ::  Number of edges of the graph.
+
+
+#+begin_export html 
+<h1 id="superclust"> Supercluster annotation table </h1>
+#+end_export
+
+- Supercluster :: Supercluster index.
+- Number of reads :: Number of reads in supercluster.
+- Automatic annotation :: Result of automatic supercluster annotation.
+- Similarity hits :: Number of similarity hits against REXdb and DNA database are shown in the classification tree structure, together with the number of reads assigned to putative satellite cluster and information about detection of LTR/PBS. Parts of the tree without any evidence are pruned off.
+- TAREAN annotation :: Clusters that are part of a supercluster and classified by TAREAN as putative satellites are listed here.
+- Clusters :: Hyperlinked list of clusters that are part of superclusters.
+
+#+begin_export html 
+<h1 id="tra"> Tandem repeat analysis </h1>
+#+end_export
+
+TAREAN divides clusters into five categories with corresponding files in the archive:
+- High confidence satellites with consensus sequences in file TR_consensus_rank_1_.fasta
+- Low confidence satellites with consensus sequences in file TR_consensus_rank_2_.fasta
+- Putative LTR element with consensus sequences in file TR_consensus_rank_3_.fasta
+- rDNA with consensus in TR_consensus_rank_4_.fasta
+- Other clusters where no potential tandem-like structure was found
+
+Summary tables from TAREAN html report include the following information: 
+
+- Cluster :: Cluster index, contains links to detailed cluster reports.
+- Proportion[%] ::  Proportion of the reads in the cluster with respect to the amount of number of analyzed sequences.
+- Proportion adjusted[%] :: Adjusted genome proportion can differ from the Proportion[%] value if Perform automatic filtering of abundant satellite repeats was on. Sequences belonging to high-abundance satellites are partially removed from all-to-all comparison and clustering, causing the Proportion estimate for these satellites to be underestimated. Proportion adjusted provides a corrected estimate of genomic proportion for a particular satellite repeat.
+- Number of reads :: Number of reads in the cluster
+- Satellite probability :: Empirical probability estimate that cluster sequences are derived from satellite repeat. This estimate is based on analysis of manually annotated clusters and experimentally validated satellite repeats (Novák et al. 2017).⁠
+- Consensus length ::
+- Consensus :: Consensus sequence is the outcome of k‑mer–based analysis and represents the most probable satellite monomer sequence.
+- Graph layout :: Graph-based visualization of similarities among sequence reads.
+- TAREAN k‑mer analysis :: Hyperlink to individual clusters TAREAN k‑mer report.
+- Connected component index C :: Proportion of nodes of the graph that are part of the largest strongly connected component.
+- Pair completeness index P :: Proportion of reads in complete read pairs within the cluster.
+- TAREAN k‑mer coverage :: Sum of relative frequencies of all k‑mers used for consensus sequence reconstruction.
+- |V| :: Number of vertices of the graph.
+- |E| :: Number of edges of the graph.
+- PBS score :: Primer binding site score, as detected by the TAREAN module. For clusters not analyzed by TAREAN, this value is not available.
+- Similarity hits ::  Similarity hits based on the search using BLASTN/BLASTX against built-in databases of known sequences. By default, this contains similarity hits to built-in databases that include rDNA, plastid, and mitochondrial sequences. If TAREAN was run within the RepeatExplorer2 pipeline, it will also contain information about similarity hits to the REXdb database. 
+- Similarity hits to custom database :: This column is optional and shows all similarity hits based on the search using BLASTN against a custom nucleotide database provided by the user.
+In individual clusters, the TAREAN report contains other variants of consensus sequences sorted by TAREAN k‑mer coverage score. For each consensus, the corresponding de Bruijn graph representation and corresponding sequence logo is shown.
+
+#+begin_export html 
+<h1 id="kmer"> TAREAN k-mer analysis report </h1>
+#+end_export
+
+The TAREAN module generates k‑mer analysis report for each cluster assigned to a putative satellite, rDNA, or putative LTR category. Consensus sequences of these repeats are reconstructed using a k‑mer–based method using the most frequent k‑mers. Several k‑mer lengths are evaluated, and the best estimates of monomer consensus sequences are reported. K‑mer analysis summary contain the following  information:
+- k‑mer length ::
+- Variant index :: Each k‑mer of given length can yield multiple consensus variants. Variants are indexed.
+- k‑mer coverage score :: The sum of proportions of all k‑mers used for reconstruction of particular monomer. If the value is 1, then all k‑mers from the corresponding cluster were used for reconstruction of the monomer, meaning that there is no variability. The more variable the monomer, the lower the k‑mer coverage score.
+- Consensus length ::
+- Consensus :: Consensus sequence extracted from the position probability matrix.
+- k‑mer bases graph :: Visualization of the de Bruijn graph. Each vertex correspond to single k‑mer. Size of vertex is proportional to the k‑mer frequency. The path that was used to reconstruct the monomer sequence is grayed out.  
+- Sequence logo :: Visualization of position probability matrix for the corresponding consensus variant.

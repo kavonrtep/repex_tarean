@@ -1,0 +1,6 @@
+#Databases versions are stored in the following format:
+#filename md5sum	database_name version_number note
+dna_database.fasta	f15fad8ea4df2d782019f40b422dbaec	dna_database	1	contains mitochondrial, plastid, rDNA, contaminants
+
+
+

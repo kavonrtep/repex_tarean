@@ -1,0 +1,399 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2016-10-21 Pá 11:06 -->
+<meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta  name="viewport" content="width=device-width, initial-scale=1" />
+<title>TAREAN output description</title>
+<meta  name="generator" content="Org-mode" />
+<meta  name="author" content="petr" />
+<style type="text/css">
+ <!--/*--><![CDATA[/*><!--*/
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #ccc;
+    box-shadow: 3px 3px 3px #eee;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: visible;
+    padding-top: 1.2em;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    background-color: white;
+    top: -10px;
+    right: 10px;
+    padding: 3px;
+    border: 1px solid black;
+  }
+  pre.src:hover:before { display: inline;}
+  pre.src-sh:before    { content: 'sh'; }
+  pre.src-bash:before  { content: 'sh'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-R:before     { content: 'R'; }
+  pre.src-perl:before  { content: 'Perl'; }
+  pre.src-java:before  { content: 'Java'; }
+  pre.src-sql:before   { content: 'SQL'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  /*]]>*/-->
+</style>
+<link rel="stylesheet" type="text/css" href="style1.css" />
+<script type="text/javascript">
+/*
+@licstart  The following is the entire license notice for the
+JavaScript code in this tag.
+
+Copyright (C) 2012-2013 Free Software Foundation, Inc.
+
+The JavaScript code in this tag is free software: you can
+redistribute it and/or modify it under the terms of the GNU
+General Public License (GNU GPL) as published by the Free Software
+Foundation, either version 3 of the License, or (at your option)
+any later version.  The code is distributed WITHOUT ANY WARRANTY;
+without even the implied warranty of MERCHANTABILITY or FITNESS
+FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
+
+As additional permission under GNU GPL version 3 section 7, you
+may distribute non-source (e.g., minimized or compacted) forms of
+that code without the copy of the GNU GPL normally required by
+section 4, provided you include this license notice and a URL
+through which recipients can access the Corresponding Source.
+
+
+@licend  The above is the entire license notice
+for the JavaScript code in this tag.
+*/
+<!--/*--><![CDATA[/*><!--*/
+ function CodeHighlightOn(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(null != target) {
+     elem.cacheClassElem = elem.className;
+     elem.cacheClassTarget = target.className;
+     target.className = "code-highlighted";
+     elem.className   = "code-highlighted";
+   }
+ }
+ function CodeHighlightOff(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(elem.cacheClassElem)
+     elem.className = elem.cacheClassElem;
+   if(elem.cacheClassTarget)
+     target.className = elem.cacheClassTarget;
+ }
+/*]]>*///-->
+</script>
+</head>
+<body>
+<div id="content">
+<h1 class="title">TAREAN output description</h1>
+<div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#orgheadline1">1. Introduction</a></li>
+<li><a href="#orgheadline3">2. Main HTML report</a>
+<ul>
+<li><a href="#orgheadline2">2.1. Table legend</a></li>
+</ul>
+</li>
+<li><a href="#orgheadline5">3. Detailed cluster report</a>
+<ul>
+<li><a href="#orgheadline4">3.1. Table legend</a></li>
+</ul>
+</li>
+<li><a href="#orgheadline7">4. Structure of the output archive</a>
+<ul>
+<li><a href="#orgheadline6">4.1. structure of cluster directories</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgheadline1" class="outline-2">
+<h2 id="orgheadline1"><span class="section-number-2">1</span> Introduction</h2>
+<div class="outline-text-2" id="text-1">
+<p>
+TAREAN output includes <b>HTML report</b> with list of all analyzed clusters; the clusters are classified into five categories:
+</p>
+<ul class="org-ul">
+<li>high confidence satellites</li>
+<li>low confidence satellites</li>
+<li>potential LTR elements</li>
+<li>rDNA</li>
+<li>other clusters</li>
+</ul>
+<p>
+Each cluster for which consensus sequences was reconstructed has also its own detailed report, linked to the main report.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgheadline3" class="outline-2">
+<h2 id="orgheadline3"><span class="section-number-2">2</span> Main HTML report</h2>
+<div class="outline-text-2" id="text-2">
+<p>
+This report contains basic information about all clusters larger than specified threshold (default value is 0.01% of analyzed reads)
+</p>
+</div>
+<div id="outline-container-orgheadline2" class="outline-3">
+<h3 id="orgheadline2"><span class="section-number-3">2.1</span> Table legend</h3>
+<div class="outline-text-3" id="text-2-1">
+<dl class="org-dl">
+<dt>Cluster</dt><dd>Cluster identifier</dd>
+<dt>Genome Proportion<code>[%]</code></dt><dd><i>(Number of sequences in cluster/Number of sequences in clustering) x 100%</i></dd>
+<dt>Size</dt><dd>Number of reads in the cluster</dd>
+<dt>Satellite probability</dt><dd>Empirical probability estimate that cluster sequences
+are derived from satellite repeat. This estimate is based on analysis of more
+than xxx clusters including yyy manually anotated and zzz experimentaly
+validated satellite repeats</dd>
+<dt>Consensus</dt><dd>Consensus sequence is outcome of kmer-based
+analysis and represents the most probable satellite monomer
+sequence</dd>
+<dt>Kmer analysis</dt><dd>link to analysis report for individual clusters</dd>
+<dt>Graph layout</dt><dd>Graph-based visualization of similarities among sequence
+reads</dd>
+<dt>Connected component index</dt><dd>Proportion of nodes of the graph which are part
+of the the largest strongly connected component</dd>
+<dt>Pair completeness index</dt><dd>Proportion of reads with available
+mate-pair within the same cluster</dd>
+<dt>Kmer coverage</dt><dd>Sum of relative frequencies of all kmers used for consensus
+sequence reconstruction</dd>
+<dt>|V|</dt><dd>Number of vertices of the graph</dd>
+<dt>|E|</dt><dd>Number of edges of the graph</dd>
+<dt>PBS score</dt><dd>Primer binding site detection score</dd>
+<dt>The longest ORF length</dt><dd>Length of the longest open reading frame found in
+any of the possible six reading frames. Search was done on dimer of
+consensus so ORFs can be longer than 'monomer' length</dd>
+<dt>Similarity-based annotation</dt><dd>Annotation based on
+similarity search using blastn/blastx against database of known
+repeats.</dd>
+</dl>
+</div>
+</div>
+</div>
+<div id="outline-container-orgheadline5" class="outline-2">
+<h2 id="orgheadline5"><span class="section-number-2">3</span> Detailed cluster report</h2>
+<div class="outline-text-2" id="text-3">
+<p>
+Cluster report includes a list of major monomer sequence varinats reconstructed from the most frequent k-mers. The reconstructed consensus sequences are sorted based on their significance (that is, what proportion of k-mer they represent).
+</p>
+</div>
+<div id="outline-container-orgheadline4" class="outline-3">
+<h3 id="orgheadline4"><span class="section-number-3">3.1</span> Table legend</h3>
+<div class="outline-text-3" id="text-3-1">
+<dl class="org-dl">
+<dt>kmer</dt><dd>length of kmer used for consensus reconstruction.</dd>
+<dt>variant</dt><dd>identifier of consensus variant.</dd>
+<dt>total score</dt><dd>measure of significance of consensus variant. Score is calculated as a sum of weights of all k-mers used for consensus reconstruction.</dd>
+<dt>monomer length</dt><dd>length of the consensus</dd>
+<dt>consensus</dt><dd>consensus sequence without ambiguous bases.</dd>
+<dt>graph image</dt><dd>part of de-Bruijn graph based on the abundant k-mers. Size of
+vertices corresponds to k-mer frequencies, Paths in the graph which was used
+for reconstruction of consensus sequences is gray colored.</dd>
+<dt>logo image</dt><dd>consensus sequences shown as DNA logo. Height of letters corresponds to kmer frequencies. Logo images are linked to corresponding position probability matrices.</dd>
+</dl>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgheadline7" class="outline-2">
+<h2 id="orgheadline7"><span class="section-number-2">4</span> Structure of the output archive</h2>
+<div class="outline-text-2" id="text-4">
+<p>
+Complete results from TAREAN analysis can by downloaded as zip archive which contains the following
+files and directories:
+</p>
+
+<div class="org-src-container">
+
+<pre class="src src-files">.
+.
+├── clusters_info.csv &lt;------------ list of clusters in tab delimited format 
+├── index.html        &lt;------------ main html report
+├── seqclust
+│   ├── assembly                  # not implemented yet
+│   ├── blastn        &lt;------------ results of read comparison with DNA database
+│   ├── blastx        &lt;------------ results of read comparison with protein database
+│   ├── clustering
+│   │   ├── clusters
+│   │   │   ├── dir_CL0001  &lt;----┐- detailed information about clusters
+│   │   │   ├── dir_CL0002  &lt;----│
+│   │   │   ├── dir_CL0003  &lt;----│
+│   │   │   ....            &lt;----┘
+│   │   │   
+│   │   └── hitsort.cls  &lt;--------- list of reads in individual clusters
+│   ├── mgblast
+│   ├── prerun
+│   └── sequences        &lt;--------- input reads
+├── summary                       # not implemented yet
+├── TR_consensus_rank_1_.fasta  &lt;-- reconstructed monomer sequences for HIGH confidence satellites
+├── TR_consensus_rank_2_.fasta  &lt;-- reconstructed monomer sequences for LOW confidence satellites
+├── TR_consensus_rank_3_.fasta  &lt;-- reconstructed sequences of potential LTR elements
+└── TR_consensus_rank_4_.fasta  &lt;-- reconstructed consensus for rDNA
+</pre>
+</div>
+
+<p>
+List of all clusters which is available in HTML file <code>index.html</code> is also
+available in tab delimited format in the file <code>clusters_info.csv</code> which can be
+easily viewed and edited in spreadsheet editing programs. List of all clusters
+and the corresponding reads is in the file <code>hitsort.cls</code> which has the following
+format:
+</p>
+
+<pre class="example">
+&gt;CL1    11
+134234r 55494f  85525f  136746r 96742f  91926f  239729r 105445f 222518r 136402r 9013
+&gt;CL2    10
+76205r  120735r 69527r  12235r  176778f 189307f 131952f 163507f 100038r 178475r 
+&gt;CL3    6
+99835r  222598f 29715r  102023f 99524r  30116f 
+&gt;CL4    6
+51723r  69073r  218774r 146425f 136314r 41744f 
+&gt;CL5    5
+70686f  65565f  234078r 50430r  68247r 
+</pre>
+
+<p>
+where <code>CL1 11</code> is the cluster ID followed by number of reads in the cluster;
+next line contains list of all read names belonging to the cluster.
+</p>
+</div>
+<div id="outline-container-orgheadline6" class="outline-3">
+<h3 id="orgheadline6"><span class="section-number-3">4.1</span> structure of cluster directories</h3>
+<div class="outline-text-3" id="text-4-1">
+<p>
+Detailed information for each cluster is stored is subdirectories:
+</p>
+
+<div class="org-src-container">
+
+<pre class="src src-folder">dir_CL0011
+├── blast.csv        &lt;------------tab delimited file, all-to-all comparison od reads within cluster            
+├── CL11_directed_graph.RData &lt;----directed graph representation of cluster saved as R igraph object
+├── CL11.GL     &lt;-----------------undirected graph representation of cluster saved as R igraph object
+├── CL11.png         &lt;-----------┐- images with graph visualization
+├── CL11_tmb.png     &lt;-----------┘
+├── dna_database_annotation.csv &lt;-- annotation of cluster reads based on the DNA database of repeats
+├── reads_all.fas   &lt;---------------- all reads included in the cluster in fasta format
+├── reads.fas      &lt;---------------- subset of reads used for monomer reconstruction
+├── reads_oriented.fas &lt;------------ subset of reads all in the same orientation
+└── tarean
+    ├── consensus.fasta &lt;----------- fasta file with tandem repeat consensus variants
+    ├── ggmin.RData
+    ├── img
+    │   ├── graph_11mer_1.png  &lt;-----┐  
+    │   ├── graph_11mer_2.png  &lt;-----│
+    │   ├── graph_15mer_2.png  &lt;-----│
+    │   ├── graph_15mer_3.png  &lt;-----│
+    │   ├── graph_15mer_4.png  &lt;-----│ images of kmer-based graphs used for reconstruction of
+    │   ├── graph_19mer_2.png  &lt;-----│ monomer variants
+    │   ├── graph_19mer_4.png  &lt;-----│
+    │   ├── graph_19mer_5.png  &lt;-----│
+    │   ├── graph_23mer_2.png  &lt;-----│
+    │   ├── graph_27mer_3.png  &lt;-----┘
+    │   │
+    │   ├── logo_11mer_1.png  &lt;-----┐  
+    │   ├── logo_11mer_2.png  &lt;-----│
+    │   ├── logo_15mer_2.png  &lt;-----│
+    │   ├── logo_15mer_3.png  &lt;-----│
+    │   ├── logo_15mer_4.png  &lt;-----│ images with DNA logos representing consensus sequences
+    │   ├── logo_19mer_2.png  &lt;-----│ of monomer variants
+    │   ├── logo_19mer_4.png  &lt;-----│
+    │   ├── logo_19mer_5.png  &lt;-----│
+    │   ├── logo_23mer_2.png  &lt;-----│
+    │   └── logo_27mer_3.png  &lt;-----┘
+    │
+    ├── ppm_11mer_1.csv  &lt;-----┐
+    ├── ppm_11mer_2.csv  &lt;-----│
+    ├── ppm_15mer_2.csv  &lt;-----│
+    ├── ppm_15mer_3.csv  &lt;-----│
+    ├── ppm_15mer_4.csv  &lt;-----│ position probability matrices for individual monomer
+    ├── ppm_19mer_2.csv  &lt;-----│ variants derived from k-mer frequencies
+    ├── ppm_19mer_4.csv  &lt;-----│
+    ├── ppm_19mer_5.csv  &lt;-----│
+    ├── ppm_23mer_2.csv  &lt;-----│
+    ├── ppm_27mer_3.csv  &lt;-----┘
+    │
+    ├── reads_oriented.fas_11.kmers  &lt;-----┐
+    ├── reads_oriented.fas_15.kmers  &lt;-----│
+    ├── reads_oriented.fas_19.kmers  &lt;-----│ k-mer frequencies calculated on oriented reads
+    ├── reads_oriented.fas_23.kmers  &lt;-----│ for k-mer lengths 11 - 27
+    ├── reads_oriented.fas_27.kmers  &lt;-----┘
+    ├── reads_oriented.fasblast_out.cvs  &lt;---------┐results of blastn search against database of tRNA
+    ├── reads_oriented.fasblast_out.cvs_L.csv &lt;----│for purposes of LTR detection 
+    ├── reads_oriented.fasblast_out.cvs_R.csv &lt;----┘ 
+    └── report.html       &lt;--- cluster analysisHTML summary
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="author">Author: petr</p>
+<p class="date">Created: 2016-10-21 Pá 11:06</p>
+<p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
+</div>
+</body>
+</html>
