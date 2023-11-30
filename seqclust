@@ -562,7 +562,7 @@ def get_cmdline_args():
         default=5, type=int,
         help=('Assembly is performed on individual clusters, by default \n'
               'clusters with size less then 5 are not assembled. If you \n'
-              'want assembly also smaller cluster set *assmbly_min* \n'
+              'want assembly also smaller cluster set assembly_min \n'
               'accordingly\n')
     )
 
