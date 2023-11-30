@@ -25,16 +25,16 @@ Free link to the full-text: [https://rdcu.be/b80Gr](https://rdcu.be/b80Gr)
 
 Four protocols are included:
 
-1. *De novo* repeat identiﬁcation in a single species
+1. *De novo* repeat identification in a single species
 2. Comparative repeat analysis in a set of species
 3. Development of satellite DNA probes for cytogenetic experiments
-4. Identiﬁcation of centromeric repeats based on ChIP-seq data
+4. Identification of centromeric repeats based on ChIP-seq data
 
 
 If you prefer to use command line version of RepeatExplorer2 and TAREAN, read the instruction below. 
 
 ## Change log
-
+this repository was trasfered from bitbucket (https://bitbucket.org/petrnovak/repex_tarean/) on 2023-11-30. 
 [link](CHANGELOG.md)
 
 
