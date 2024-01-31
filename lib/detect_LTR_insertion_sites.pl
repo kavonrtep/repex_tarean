@@ -180,13 +180,13 @@ sub reconstruct_assembly {
 	}
 	
 	for ($f=1;$f<=$shift;$f++) {
-		$assembly_seq[$f] = "-";
+		$assembly_seq[$f] = "N";
 	}
 	for ($f=1;$f<=$cont_length;$f++) {
 		$assembly_seq[$f+$shift] = substr($cons,$f-1,1);
 	}
 	for ($f=$shift+$cont_length+1;$f<=$assembly_length;$f++) {
-		$assembly_seq[$f] = "+";
+		$assembly_seq[$f] = "N";
 	}
 
 	for ($f=1;$f<=$assembly_length;$f++) {
