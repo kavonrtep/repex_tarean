@@ -158,16 +158,21 @@ CUSTOM_DNA_DATABASE = None
 PROTEIN_DATABASE_DEFAULT = "VIRIDIPLANTAE3.0"
 PROTEIN_DATABASE_OPTIONS = {'VIRIDIPLANTAE3.0' :
                             (PATH("databases/protein_database_viridiplantae_v3.0.fasta"),   # change according if you use custom protein database
-                             PATH("databases/classification_tree_viridiplantae_v3.0.rds")),  # classification schem - data.tree object
+                             PATH(
+                                 "databases/classification_tree_viridiplantae_v3.0_2.rds"
+                                 "")),  # classification schem - data.tree object
+
                             'VIRIDIPLANTAE2.2' :
                             (PATH("databases/protein_database_viridiplantae_v2.2.fasta"),   # change according if you use custom protein database
-                             PATH("databases/classification_viridiplantae_tree.rds")),  # classification schem - data.tree object
+                             PATH("databases/classification_viridiplantae_tree_2.rds")),  # classification schem - data.tree object
                             'METAZOA2.0' :
-                            (PATH("databases/protein_database_metazoa_v3.fasta"), # change according if you use custom protein database
-                             PATH("databases/classification_tree_metazoa_v3.rds")),   # classification schem - data.tree object
+                            (PATH("databases/protein_database_metazoa_v2.fasta"),
+                             # change according if you use custom protein database
+                             PATH("databases/classification_tree_metazoa_v2_2.rds")),
+                            # classification schem - data.tree object
                             'METAZOA3.0' :
                             (PATH("databases/protein_database_metazoa_v3.fasta"), # change according if you use custom protein database
-                             PATH("databases/classification_tree_metazoa_v3.rds"))   # classification schem - data.tree object
+                             PATH("databases/classification_tree_metazoa_v3_2.rds"))   # classification schem - data.tree object
 }
 # if you change PROTEIN_DATABASE_OPTIONS, do not forget to use 'makeblastdb' build blast database
 # and 'diamond makedb' to build diamond database
