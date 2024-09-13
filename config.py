@@ -155,21 +155,29 @@ CLASSIFICATION_HIERARCHY = None
 CUSTOM_DNA_DATABASE = None
 
 # when modifying this section check if makefile has most recent target for protein database
-PROTEIN_DATABASE_DEFAULT = "VIRIDIPLANTAE3.0"
-PROTEIN_DATABASE_OPTIONS = {'VIRIDIPLANTAE3.0' :
-                            (PATH("databases/protein_database_viridiplantae_v3.0.fasta"),   # change according if you use custom protein database
-                             PATH("databases/classification_tree_viridiplantae_v3.0.rds")),  # classification schem - data.tree object
-                            'VIRIDIPLANTAE2.2' :
-                            (PATH("databases/protein_database_viridiplantae_v2.2.fasta"),   # change according if you use custom protein database
-                             PATH("databases/classification_viridiplantae_tree.rds")),  # classification schem - data.tree object
-                            'METAZOA2.0' :
-                            (PATH("databases/protein_database_metazoa_v3.fasta"), # change according if you use custom protein database
-                             PATH("databases/classification_tree_metazoa_v3.rds")),   # classification schem - data.tree object
-                            'METAZOA3.0' :
-                            (PATH("databases/protein_database_metazoa_v3.fasta"), # change according if you use custom protein database
-                             PATH("databases/classification_tree_metazoa_v3.rds"))   # classification schem - data.tree object
-}
-# if you change PROTEIN_DATABASE_OPTIONS, do not forget to use 'makeblastdb' build blast database
+PROTEIN_DATABASE_DEFAULT = "VIRIDIPLANTAE4.0"
+PROTEIN_DATABASE_OPTIONS = {
+    'VIRIDIPLANTAE4.0': (PATH("databases/protein_database_viridiplantae_v4.0.fasta"),
+                         PATH("databases/classification_tree_viridiplantae_v4.0.rds")),
+    'VIRIDIPLANTAE3.0': (PATH("databases/protein_database_viridiplantae_v3.0.fasta"),
+                         # change according if you use custom protein database
+                         PATH("databases/classification_tree_viridiplantae_v3.0.rds")),
+    # classification schem - data.tree object
+    'VIRIDIPLANTAE2.2': (PATH("databases/protein_database_viridiplantae_v2.2.fasta"),
+                         # change according if you use custom protein database
+                         PATH("databases/classification_viridiplantae_tree.rds")),
+    # classification schem - data.tree object
+    'METAZOA2.0': (PATH("databases/protein_database_metazoa_v3.fasta"),
+                   # change according if you use custom protein database
+                   PATH("databases/classification_tree_metazoa_v3.rds")),
+    # classification schem - data.tree object
+    'METAZOA3.0': (PATH("databases/protein_database_metazoa_v3.fasta"),
+                   # change according if you use custom protein database
+                   PATH("databases/classification_tree_metazoa_v3.rds"))
+    # classification schem - data.tree object
+    }
+# if you change PROTEIN_DATABASE_OPTIONS, do not forget to use 'makeblastdb' build
+# blast database
 # and 'diamond makedb' to build diamond database
 
 # PATH to binaries
