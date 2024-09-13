@@ -491,17 +491,6 @@ format_tree = function(cls_tree, ...) {
     ## try to get rid off unicode characters
     df[,1] = gsub("\U00B0", "'", df[,1], fixed = TRUE, useBytes = TRUE)
     df[,1] = gsub("\U00A6", "|", df[,1], fixed = TRUE, useBytes = TRUE)
-
-    df[,1] = gsub("<U+00B0>", "'", df[,1], fixed = TRUE, useBytes = TRUE)
-    df[,1] = gsub("<U+00A6>", "|", df[,1], fixed = TRUE, useBytes = TRUE)
-
-    df[,1] = gsub("\xc2\xb0", "'", df[,1], fixed = TRUE, useBytes = TRUE)
-    df[,1] = gsub("\xc2\xa6", "|", df[,1], fixed = TRUE, useBytes = TRUE)
-
-
-
-
-
     colnames(df)[1] = "                                               "  ## originally levelName
     if ("proportion" %in% colnames(df)){
         df$proportion = signif(df$proportion,2)
