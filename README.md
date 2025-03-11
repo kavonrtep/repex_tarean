@@ -81,17 +81,15 @@ To verify the installation, run RepeatExplorer clustering on the provided exampl
 
 ### Running RepeatExplorer using Singularity:
 Singularity container is available from singularity hub. Multiple versions of
-repeatexplorer are available. See [singularity](https://github.com/repeatexplorer/repex_tarean) conainted definiton for
+repeatexplorer are available. See [singularity](https://github.com/repeatexplorer/repex_tarean) conainter definiton for
 available versions. To run latest version use:
-`shub://repeatexplorer/repex_tarean` or
-`shub://repeatexplorer/repex_tarean:latest`. To use specific version use e.g.
-shub://repeatexplorer/repex_tarean:0.3.8.dbaa07f
+`library://repeatexplorer/default/repex_tarean:0.3.12-7a7dc9e`
 
 Example of running RepeatExplorer2 using singularity:
 
 get help:
 
-    singularity exec shub://repeatexplorer/repex_tarean seqclust --help
+    singularity exec library://repeatexplorer/default/repex_tarean:0.3.12-7a7dc9e seqclust --help
 
 
 run clustering in working directory:
@@ -103,7 +101,7 @@ run clustering in working directory:
     singularity exec --bind ${PWD}:/data/ shub://repeatexplorer/repex_tarean seqclust -p -v /data/re_output /data/LAS_paired_10k.fas
     
     
-output will be locate in `working_dir/re_output`
+output will be located in `working_dir/re_output`
 
 
 
