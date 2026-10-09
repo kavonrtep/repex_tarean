@@ -113,6 +113,9 @@ CHUNK_SIZE = 20000
 
 CLUSTER_EMAX = 2E7  # this parameter higle affect memory usage!
 
+# max memory SQLite may use for caching graph DB pages, in MiB
+SQLITE_CACHE_MB = 1024
+
 CLUSTER_VMAX = 40000
 SUPERCLUSTER_THRESHOLD = 0.1
 # Number of processors to use - it will be set at runtime
