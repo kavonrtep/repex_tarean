@@ -131,7 +131,9 @@ class Graph():
         c = self.conn.cursor()
 
         c.execute("PRAGMA page_size=8192")
-        c.execute("PRAGMA cache_size = 2000000 ")  # this helps
+        # negative cache_size => value is in KiB
+        # https://sqlite.org/pragma.html#pragma_cache_size
+        c.execute("PRAGMA cache_size = {}".format(-config.SQLITE_CACHE_MB * 1024))
 
         try:
             c.execute((
